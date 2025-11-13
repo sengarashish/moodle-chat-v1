@@ -10,7 +10,8 @@
  * Version information for local_aiassistant
  *
  * @package    local_aiassistant
- * @copyright  2024 AI Assistant Team
+ * @copyright  2024 Ashish Sengar
+ * @author     Ashish Sengar <sengarashish@users.noreply.github.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

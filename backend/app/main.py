@@ -1,6 +1,7 @@
 """
 Main FastAPI application for Moodle AI Assistant
 """
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -20,27 +21,11 @@ logger.add(
     level="DEBUG" if settings.debug else "INFO"
 )
 
-# Create FastAPI app
-app = FastAPI(
-    title="Moodle AI Assistant API",
-    description="RAG-powered AI assistant for Moodle with LangChain and Qdrant",
-    version="1.0.0",
-    debug=settings.debug
-)
 
-# CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Configure appropriately for production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-@app.on_event("startup")
-async def startup_event():
-    """Initialize services on startup"""
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Application lifespan manager - replaces deprecated on_event"""
+    # Startup
     logger.info("Starting Moodle AI Assistant backend...")
 
     try:
@@ -61,11 +46,29 @@ async def startup_event():
         logger.error(f"Failed to initialize services: {e}")
         raise
 
+    yield
 
-@app.on_event("shutdown")
-async def shutdown_event():
-    """Cleanup on shutdown"""
+    # Shutdown
     logger.info("Shutting down Moodle AI Assistant backend...")
+
+
+# Create FastAPI app with lifespan
+app = FastAPI(
+    title="Moodle AI Assistant API",
+    description="RAG-powered AI assistant for Moodle with LangChain and Qdrant",
+    version="1.0.0",
+    debug=settings.debug,
+    lifespan=lifespan
+)
+
+# CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Configure appropriately for production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.exception_handler(Exception)

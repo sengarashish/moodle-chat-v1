@@ -1,44 +1,47 @@
 # FastAPI and server
-fastapi==0.109.0
-uvicorn[standard]==0.27.0
-python-multipart==0.0.6
-pydantic==2.5.3
-pydantic-settings==2.1.0
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-multipart==0.0.18
+pydantic==2.10.3
+pydantic-settings==2.6.1
 
-# LangChain ecosystem
-langchain==0.1.4
-langchain-openai==0.0.5
-langchain-anthropic==0.1.1
-langchain-community==0.0.16
-langgraph==0.0.20
+# LangChain ecosystem - Latest versions
+langchain==0.3.13
+langchain-openai==0.2.14
+langchain-anthropic==0.3.3
+langchain-community==0.3.13
+langgraph==0.2.59
+langchain-core==0.3.28
+langchain-text-splitters==0.3.2
 
 # Vector store
-qdrant-client==1.7.3
-langchain-qdrant==0.0.1
+qdrant-client==1.12.1
+langchain-qdrant==0.2.0
 
 # Document processing
-pypdf==4.0.0
+pypdf==5.1.0
 beautifulsoup4==4.12.3
-requests==2.31.0
+requests==2.32.3
 html2text==2024.2.26
-python-docx==1.1.0
-openpyxl==3.1.2
+python-docx==1.1.2
+openpyxl==3.1.5
+unstructured==0.16.9
 
 # Embeddings
-sentence-transformers==2.3.1
-openai==1.10.0
-anthropic==0.9.0
+sentence-transformers==3.3.1
+openai==1.58.1
+anthropic==0.39.0
 
 # Search
 google-search-results==2.4.2
-duckduckgo-search==4.1.1
+duckduckgo-search==7.1.0
 
 # Utilities
 python-dotenv==1.0.1
-httpx==0.26.0
-aiofiles==23.2.1
-tiktoken==0.5.2
+httpx==0.28.1
+aiofiles==24.1.0
+tiktoken==0.8.0
 
 # Monitoring and logging
-loguru==0.7.2
-prometheus-client==0.19.0
+loguru==0.7.3
+prometheus-client==0.21.0

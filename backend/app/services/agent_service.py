@@ -1,11 +1,12 @@
 """
 LangGraph agent service with intelligent query routing
 """
-from typing import Dict, Any, List, Optional, Literal
+from typing import Dict, Any, List, Optional, Literal, Annotated
 from typing_extensions import TypedDict
-from langgraph.graph import StateGraph, END
-from langchain.schema import HumanMessage, AIMessage
+from langgraph.graph import StateGraph, END, START
+from langchain_core.messages import HumanMessage, AIMessage
 from loguru import logger
+import operator
 
 from app.config import settings
 from app.services.vector_store import VectorStoreService
@@ -14,7 +15,7 @@ from app.services.search_service import SearchService
 
 
 class AgentState(TypedDict):
-    """State for the agent graph"""
+    """State for the agent graph - using latest LangGraph patterns"""
     query: str
     history: List[Dict[str, str]]
     user_age: Optional[int]
@@ -22,7 +23,7 @@ class AgentState(TypedDict):
     search_results: Optional[List[Dict[str, Any]]]
     route: Optional[Literal["rag", "llm", "search"]]
     response: Optional[str]
-    sources: Optional[List[str]]
+    sources: Annotated[List[str], operator.add]  # Use operator.add for list concatenation
 
 
 class AgentService:
@@ -35,7 +36,7 @@ class AgentService:
         self.graph = self._build_graph()
 
     def _build_graph(self) -> StateGraph:
-        """Build the LangGraph workflow"""
+        """Build the LangGraph workflow using latest API"""
         workflow = StateGraph(AgentState)
 
         # Add nodes
@@ -44,8 +45,8 @@ class AgentService:
         workflow.add_node("search_web", self._search_web)
         workflow.add_node("generate_response", self._generate_response)
 
-        # Define edges
-        workflow.set_entry_point("route_query")
+        # Define edges - using START instead of set_entry_point
+        workflow.add_edge(START, "route_query")
 
         workflow.add_conditional_edges(
             "route_query",
