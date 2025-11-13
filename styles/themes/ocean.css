@@ -1,0 +1,84 @@
+/**
+ * Ocean theme for AI Assistant
+ *
+ * @package    local_aiassistant
+ * @copyright  2024 AI Assistant Team
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+.theme-ocean {
+    background: linear-gradient(180deg, #0d47a1 0%, #1976d2 100%);
+}
+
+.theme-ocean .aiassistant-sidebar {
+    background: linear-gradient(180deg, #1565c0 0%, #1976d2 100%);
+    color: #e3f2fd;
+}
+
+.theme-ocean .aiassistant-sidebar h3 {
+    color: #90caf9;
+}
+
+.theme-ocean .chat-history-item {
+    background: rgba(25, 118, 210, 0.3);
+    border-color: #1976d2;
+    color: #e3f2fd;
+}
+
+.theme-ocean .chat-history-item:hover {
+    background: rgba(25, 118, 210, 0.5);
+}
+
+.theme-ocean .chat-history-item.active {
+    background: #1976d2;
+    border-color: #42a5f5;
+}
+
+.theme-ocean .chat-messages {
+    background: linear-gradient(180deg, #0d47a1 0%, #1565c0 100%);
+}
+
+.theme-ocean .message-user {
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
+}
+
+.theme-ocean .message-assistant {
+    background: linear-gradient(135deg, #1e4d7b 0%, #2563a0 100%);
+    color: #bbdefb;
+    border-color: #1976d2;
+}
+
+.theme-ocean .chat-input-area {
+    background: linear-gradient(180deg, #1565c0 0%, #1976d2 100%);
+    border-top-color: #42a5f5;
+}
+
+.theme-ocean #chat-input {
+    background: rgba(25, 118, 210, 0.3);
+    border-color: #1976d2;
+    color: #e3f2fd;
+}
+
+.theme-ocean #chat-input::placeholder {
+    color: #64b5f6;
+}
+
+.theme-ocean #send-btn {
+    background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+}
+
+.theme-ocean #send-btn:hover {
+    background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+}
+
+/* Add ocean-themed decorations */
+.theme-ocean .aiassistant-chat-area::before {
+    content: '🌊';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    opacity: 0.3;
+}

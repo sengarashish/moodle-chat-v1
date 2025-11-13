@@ -1,0 +1,84 @@
+/**
+ * Jungle theme for AI Assistant
+ *
+ * @package    local_aiassistant
+ * @copyright  2024 AI Assistant Team
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+.theme-jungle {
+    background: linear-gradient(180deg, #1a3a1a 0%, #2d5a2d 100%);
+}
+
+.theme-jungle .aiassistant-sidebar {
+    background: linear-gradient(180deg, #234d23 0%, #2d5a2d 100%);
+    color: #d4f1d4;
+}
+
+.theme-jungle .aiassistant-sidebar h3 {
+    color: #90ee90;
+}
+
+.theme-jungle .chat-history-item {
+    background: rgba(61, 126, 61, 0.3);
+    border-color: #3d7e3d;
+    color: #d4f1d4;
+}
+
+.theme-jungle .chat-history-item:hover {
+    background: rgba(61, 126, 61, 0.5);
+}
+
+.theme-jungle .chat-history-item.active {
+    background: #2e7d32;
+    border-color: #43a047;
+}
+
+.theme-jungle .chat-messages {
+    background: linear-gradient(180deg, #1a3a1a 0%, #2d5a2d 100%);
+}
+
+.theme-jungle .message-user {
+    background: linear-gradient(135deg, #43a047 0%, #66bb6a 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(67, 160, 71, 0.3);
+}
+
+.theme-jungle .message-assistant {
+    background: linear-gradient(135deg, #2e4e2e 0%, #3d5e3d 100%);
+    color: #c8e6c9;
+    border-color: #43a047;
+}
+
+.theme-jungle .chat-input-area {
+    background: linear-gradient(180deg, #234d23 0%, #2d5a2d 100%);
+    border-top-color: #43a047;
+}
+
+.theme-jungle #chat-input {
+    background: rgba(61, 126, 61, 0.3);
+    border-color: #43a047;
+    color: #d4f1d4;
+}
+
+.theme-jungle #chat-input::placeholder {
+    color: #81c784;
+}
+
+.theme-jungle #send-btn {
+    background: linear-gradient(135deg, #43a047 0%, #66bb6a 100%);
+}
+
+.theme-jungle #send-btn:hover {
+    background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+}
+
+/* Add jungle-themed decorations */
+.theme-jungle .aiassistant-chat-area::before {
+    content: '🌿';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    opacity: 0.3;
+}
